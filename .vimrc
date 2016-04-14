@@ -35,9 +35,11 @@ let g:rehash256 = 1
 "++++++++++++++++++++++++++++++++++++++++++++
 " 按键映射
 "++++++++++++++++++++++++++++++++++++++++++++
+" 引导键: ,
 let mapleader=','
 let g:mapleader=','
 
+" 关闭方向键
 map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
@@ -45,14 +47,7 @@ map <Down> <Nop>
 
 map Y y$
 
-" ,w 快速保存
-nmap <leader>w :wall!<cr>
-" ,q 快速退出
-nmap <leader>q :q!<cr>
-" ,c 快速关闭窗口
-nmap <leader>c :close<cr>
-
-" ,/ 关闭代码高亮
+" ,/ 关闭搜索高亮
 noremap <silent><leader>/ :nohls<CR>
 
 " 直接在vim中执行Python程序
@@ -66,20 +61,24 @@ nnoremap <F6> :w !python3<cr>
 "重新载入vim配置
 nnoremap <F12> :source ~/.vimrc<cr>
 
-" 创建session
-nnoremap <leader>ss :mksession! ~/.session.vim<cr>
-" 恢复session
-nnoremap <leader>s :source ~/.session.vim<cr>
+" ,ms创建session
+nnoremap <leader>ms :mksession! ~/.session.vim<cr>
+" ,rs恢复session
+nnoremap <leader>rs :source ~/.session.vim<cr>
 
 
 "++++++++++++++++++++++++++++++++++++++++++++
 " 窗口管理
 "++++++++++++++++++++++++++++++++++++++++++++
 " 在窗口间切换
-map <leader>j <C-W>j
-map <leader>k <C-W>k
-map <leader>h <C-W>h
-map <leader>l <C-W>l
+" ,j 上
+nmap <leader>j <C-W>j
+" ,k 下
+nmap <leader>k <C-W>k
+" ,h 左
+nmap <leader>h <C-W>h
+" ,l 右
+nmap <leader>l <C-W>l
 
 " 调整窗口位置
 nmap <leader>L <C-W>L
@@ -87,9 +86,20 @@ nmap <leader>K <C-W>K
 nmap <leader>J <C-W>J
 nmap <leader>H <C-W>H
 
-" ,z 保存所有窗口并退出
-nmap <leader>z :wqall<cr>
-nmap <leader>o :only<cr>
+" ,w 快速保存
+nmap <leader>w :w<cr>
+" ,wa 保存所有窗口
+nmap <leader>wa :wall<cr>
+" ,q 强制退出当前窗口
+nmap <leader>q :q!<cr>
+" ,c 快速关闭窗口
+nmap <leader>c :close<cr>
+
+
+" ,wz 保存所有窗口并退出
+nmap <leader>wz :wqall<cr>
+" ,wo
+nmap <leader>wo :only<cr>
 
 
 "++++++++++++++++++++++++++++++++++++++++++++
@@ -105,6 +115,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
@@ -121,7 +132,9 @@ filetype plugin indent on
 "++++++++++++++++++++++++++++++++++++++++++++
 " 插件设置
 "++++++++++++++++++++++++++++++++++++++++++++
+"--------------
 " YouCompleteMe
+"--------------
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_global_ycm_extra_conf = '~/ycm_extra_conf.py'
@@ -134,19 +147,26 @@ let g:ycm_filetype_blacklist = {
     \}
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
+"----------
 " Syntastic
-set statusline+=%#warningmsg#
+"----------
+"set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pylint', 'pyflakes']
-nmap <F10> :lopen<cr>
-nmap <leader>x :lclose<cr>
+"let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_python_checkers = ['flake8']
+" 忽略F401:引入未使用, E501: 超过79字符
+let g:syntastic_python_flake8_args = '"--ignore=F401,E501"'
+" 关闭错误显示窗口
+nmap <leader>xx :lclose<cr>
 
+"---------
 " NERDTree
+"---------
 nmap <leader>f :NERDTreeToggle<cr>
 let NERDTreeIgnore=[
     \ '\.pyc$',
@@ -156,29 +176,61 @@ let NERDTreeIgnore=[
     \ '\.so$',
     \ '\.out$',
     \ '\.egg$',
+    \ '\.swp$',
     \ '^\.git$',
     \ '^\.svn$',
     \ '^\.hg$'
     \]
-let g:NERDTreeMapOpenSplit = 's'
-let g:NERDTreeMapOpenVSplit = 'v'
+" 显示隐藏文件
+let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
+let NERDTreeAutoDeleteBuffer = 1
 
+"-------
 " Tagbar
+"-------
 nmap <leader>t :TagbarToggle<cr>
 
+"----------
 " UltiSnips
-let g:UltiSnipsExpandTrigger = '<C-j>'
-let g:UltiSnipsJumpForwardTrigger = "<C-l>"
+"----------
+let g:UltiSnipsExpandTrigger = '<C-h>'
+let g:UltiSnipsJumpForwardTrigger = "<C-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'Snippets']
-map <leader>us :UltiSnipsEdit<CR>
 
+" 编辑当前文件的snippets
+map <leader>us :UltiSnipsEdit<CR>
+" 水平打开snippets编辑窗口
+let g:UltiSnipsEditSplit = 'horizontal'
+
+"---------------------
 " Trailling Whitespace
+"---------------------
 nmap <leader><Space> :FixWhitespace<cr>
 
+"------
 " a.vim
+"------
+" ,a来回切换.h与.c文件
 nmap <leader>a :A<cr>
+
+
+"--------------------
+" NERDTree git plugin
+"--------------------
+" 可修改的标识
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
 
 
 "++++++++++++++++++++++++++++++++++++++++++++
@@ -186,6 +238,8 @@ nmap <leader>a :A<cr>
 "++++++++++++++++++++++++++++++++++++++++++++
 if has("gui_running")
     set guifont="Monospace":h12
+
+    " 关闭工具栏, 滚动条等
     set guioptions-=T
     set guioptions-=e
     set guioptions-=l
@@ -193,7 +247,10 @@ if has("gui_running")
     set guioptions-=r
     set guioptions-=R
     set guioptions-=m
+
     set t_Co=256
+
+    " 最大化打开
     set lines=999
     set columns=999
 endif
