@@ -125,6 +125,8 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/a.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'kien/ctrlp.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -219,18 +221,32 @@ nmap <leader>a :A<cr>
 "--------------------
 " NERDTree git plugin
 "--------------------
-" 可修改的标识
+" 默认的标识依次是: ✹ ✚ ✭ ➜ ═ ✖ ✗ ✔︎ ?
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
+    \ "Modified"  : "M",
+    \ "Staged"    : "S",
+    \ "Untracked" : "U",
+    \ "Renamed"   : "R",
+    \ "Unmerged"  : "=",
+    \ "Deleted"   : "X",
+    \ "Dirty"     : "D",
+    \ "Clean"     : "C",
     \ "Unknown"   : "?"
     \ }
+
+"----------
+" gitgutter
+"----------
+" 修改标识设为*
+let g:gitgutter_sign_modified = '*'
+
+"------
+" CtrlP
+"------
+" 显示dotfiles
+let g:ctrlp_show_hidden = 1
+" 忽略
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.swp/* 
 
 
 "++++++++++++++++++++++++++++++++++++++++++++
