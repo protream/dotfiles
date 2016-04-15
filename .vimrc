@@ -183,6 +183,7 @@ filetype plugin indent on
 "--------------
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/ycm_extra_conf.py'
 let g:ycm_filetype_blacklist = {
     \ 'nerdtree' : 1,
@@ -205,6 +206,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_c_checkers = ['splint']
 " 忽略F401:引入未使用, E501: 超过79字符
 let g:syntastic_python_flake8_args = '"--ignore=F401,E501"'
 " 关闭错误显示窗口
