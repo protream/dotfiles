@@ -11,7 +11,6 @@ set shiftwidth=4
 set expandtab
 set tabstop=4
 set autoread
-set hlsearch
 set incsearch
 set ignorecase
 set laststatus=2
@@ -21,6 +20,8 @@ set encoding=utf-8
 set helplang=cn
 set showcmd
 
+" 使用easymotion高亮搜索, 关闭这个
+"set hlsearch
 
 "++++++++++++++++++++++++++++++++++++++++++++
 " 主题设置
@@ -48,23 +49,25 @@ map <Down> <Nop>
 map Y y$
 
 " ,/ 关闭搜索高亮
-noremap <silent><leader>/ :nohls<CR>
+nmap <silent><leader>/ :nohls<CR>
 
 " 直接在vim中执行Python程序
 " ,r for python3
-nnoremap <leader>r :w !python3<cr>
+nmap <leader>r :w !python3<cr>
 " f5 for python2
-nnoremap <F5> :w !python2<cr>
+nmap <F5> :w !python2<cr>
 " f6 also for python3
-nnoremap <F6> :w !python3<cr>
+nmap <F6> :w !python3<cr>
 
-"重新载入vim配置
-nnoremap <F12> :source ~/.vimrc<cr>
+" ,mc编辑vimrc文件
+nmap <leader>mc :e ~/.vimrc<cr>
+" 重新载入vim配置
+nmap <F12> :source ~/.vimrc<cr>
 
-" ,ms创建session
-nnoremap <leader>ms :mksession! ~/.session.vim<cr>
-" ,rs恢复session
-nnoremap <leader>rs :source ~/.session.vim<cr>
+" ,ms创建session: Make Session
+nmap <leader>ms :mksession! ~/.session.vim<cr>
+" ,rs恢复session: Recover Session
+nmap <leader>rs :source ~/.session.vim<cr>
 
 
 "++++++++++++++++++++++++++++++++++++++++++++
@@ -127,6 +130,10 @@ Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/a.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 call vundle#end()
 filetype plugin indent on
 
@@ -192,6 +199,9 @@ let NERDTreeAutoDeleteBuffer = 1
 " Tagbar
 "-------
 nmap <leader>t :TagbarToggle<cr>
+" 不显示help信息
+let g:tagbar_compact = 1
+let g:tagbar_width = 32
 
 "----------
 " UltiSnips
@@ -246,7 +256,26 @@ let g:gitgutter_sign_modified = '*'
 " 显示dotfiles
 let g:ctrlp_show_hidden = 1
 " 忽略
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.swp/* 
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.swp/*
+
+"------
+" emmet
+"------
+let g:user_emmet_mode='i'
+"let g:user_emmet_leader_key='<C-M>'
+
+
+"-----------
+" easymotion
+"-----------
+map ; <Plug>(easymotion-prefix)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+"-------------
+" vim markdown
+"-------------
+let g:vim_markdown_folding_disabled = 1
 
 
 "++++++++++++++++++++++++++++++++++++++++++++
