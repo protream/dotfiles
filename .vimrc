@@ -1,26 +1,28 @@
 "++++++++++++++++++++++++++++++++++++++++++++
 " 基本设置
 "++++++++++++++++++++++++++++++++++++++++++++
-syntax on
+" neovim下, 以下是默认值
+if !has('nvim')
+    syntax on
+    set nocompatible
+    set encoding=utf-8
+    set laststatus=2
+    set autoindent
+    set autoread
+    set incsearch
+endif
+
 set number
-set nocompatible
 set cmdheight=1
-set autoindent
 set smartindent
 set shiftwidth=4
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftround
-set autoread
-set incsearch
 set ignorecase
-set laststatus=2
 set title
 set shortmess=atI
-set encoding=utf-8
-set helplang=cn
-set showcmd
 
 " 使用easymotion高亮搜索, 关闭这个
 "set hlsearch
@@ -245,9 +247,9 @@ let g:tagbar_width = 32
 "----------
 " UltiSnips
 "----------
-let g:UltiSnipsExpandTrigger = '<C-h>'
-let g:UltiSnipsJumpForwardTrigger = "<C-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+let g:UltiSnipsExpandTrigger = '<CR>'
+let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'Snippets']
 
 " 编辑当前文件的snippets
