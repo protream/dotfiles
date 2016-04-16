@@ -175,6 +175,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-surround'
 Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-repeat'
 call vundle#end()
 filetype plugin indent on
 
