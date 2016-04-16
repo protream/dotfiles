@@ -12,6 +12,11 @@ if !has('nvim')
     set incsearch
 endif
 
+if has('nvim')
+    " 使用easymotion的搜索高亮, 关闭nvim默认的搜索高亮
+    set nohls
+endif
+
 set number
 set cmdheight=1
 set smartindent
@@ -23,9 +28,6 @@ set shiftround
 set ignorecase
 set title
 set shortmess=atI
-
-" 使用easymotion高亮搜索, 关闭这个
-"set hlsearch
 
 "---------
 " 主题设置
@@ -183,6 +185,10 @@ filetype plugin indent on
 "--------------
 " YouCompleteMe
 "--------------
+" 不显示Preview
+set completeopt=menu
+" 不用tab选择, 和UltiSnip冲突
+let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_confirm_extra_conf = 0
@@ -247,9 +253,9 @@ let g:tagbar_width = 32
 "----------
 " UltiSnips
 "----------
-let g:UltiSnipsExpandTrigger = '<CR>'
-let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'Snippets']
 
 " 编辑当前文件的snippets
