@@ -1,30 +1,9 @@
-global !p
-
-def get_dir_and_fnameI(snip):
-	return os.getcwd().split('/')[-1] + '.' + snip.basename
-
-endglobal
-
 snippet # "conding" b
 # -*- coding: utf-8 -*-
 endsnippet
 
-snippet mds "pocoo style module doc string"
-# -*- coding: utf-8 -*-
-"""
-	`!p snip.rv = get_dir_and_fnameI(snip)`
-	`!p snip.rv = '~' * len(get_dir_and_fnameI(snip))`
 
-	${1:TODO}
-
-	:copyright: (c) `date +%Y` by protream.
-	:license: ${2:MIT}, see LICENSE for more details.
-"""
-$0
-endsnippet
-
-
-snippet prt "print()" b
+snippet p "print()" b
 ${0}print(${1})
 endsnippet
 
@@ -41,4 +20,39 @@ endsnippet
 snippet init "__init__" b
 def __init__(self, ${1}):
 	${2:pass}
+endsnippet
+
+
+snippet f "False"
+False
+endsnippet
+
+
+snippet t "True"
+True
+endsnippet
+
+
+snippet r "return" b
+return $0
+endsnippet
+
+
+snippet w "while" b
+while $0
+endsnippet
+
+
+snippet d "short doc string" b
+"""$1."""
+endsnippet
+
+
+snippet td "todo" b
+# TODO: $0
+endsnippet
+
+
+snippet n "none"
+None
 endsnippet
