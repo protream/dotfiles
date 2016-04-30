@@ -10,6 +10,7 @@ if !has('nvim')
     set autoindent
     set autoread
     set incsearch
+    set mouse=a
 endif
 
 if has('nvim')
@@ -28,7 +29,10 @@ set softtabstop=4
 set shiftround
 set ignorecase
 set title
+set cursorline
 set shortmess=atI
+
+autocmd FileType html setlocal sw=2 ts=2
 
 "---------
 " 主题设置
