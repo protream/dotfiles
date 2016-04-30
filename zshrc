@@ -85,9 +85,19 @@ source $ZSH/oh-my-zsh.sh
 alias yg="you-get -o ~/Videos/"
 alias ygp="you-get -p totem"
 
-alias v="vim"
+alias v="nvim"
+alias vs="nvim -S ~/.session.vim"
 alias gv="gvim"
-alias vs="vim -S ~/.session.vim"
 alias gvs="gvim -S ~/.session.vim"
+
+# blog site preview out side octopress
+alias prv="cd ~/Octopress;rake preview;cd -"
+# deploy to github out side octopress
+alias dpy="cd ~/Octopress;rake deploy;cd -"
+
+alias tmux="tmux -2"
+
+alias py='python2'
+alias py3='python3'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

@@ -17,7 +17,8 @@ if has('nvim')
     set nohls
 endif
 
-set number
+"set hls
+set rnu
 set cmdheight=1
 set smartindent
 set shiftwidth=4
@@ -75,7 +76,7 @@ nmap <F6> :w !python3<cr>
 " vimrc
 "------
 " ,mc编辑vimrc文件
-nmap <leader>mc :e ~/.vimrc<cr>
+nmap <leader>mc :vnew ~/.vimrc<cr>
 " 重新载入vim配置
 nmap <F12> :source ~/.vimrc<cr>
 
@@ -187,7 +188,7 @@ filetype plugin indent on
 " YouCompleteMe
 "--------------
 " 不显示Preview
-set completeopt=menu
+"set completeopt=menu
 " 不用tab选择, 和UltiSnip冲突
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -216,8 +217,7 @@ let g:syntastic_check_on_wq = 0
 "let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_c_checkers = ['splint']
-" 忽略F401:引入未使用, E501: 超过79字符
-let g:syntastic_python_flake8_args = '"--ignore=F401,E501"'
+let g:syntastic_python_flake8_args = '"--ignore=F401,E501,E265,E126,E241,F403,F821"'
 " 关闭错误显示窗口
 nmap <leader>xx :lclose<cr>
 
@@ -262,7 +262,7 @@ let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'Snippets']
 " 编辑当前文件的snippets
 map <leader>us :UltiSnipsEdit<CR>
 " 水平打开snippets编辑窗口
-let g:UltiSnipsEditSplit = 'horizontal'
+let g:UltiSnipsEditSplit = 'vertical'
 
 "---------------------
 " Trailling Whitespace
