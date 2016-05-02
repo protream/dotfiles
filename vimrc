@@ -192,7 +192,7 @@ filetype plugin indent on
 " YouCompleteMe
 "--------------
 " 不显示Preview
-"set completeopt=menu
+set completeopt=menu
 " 不用tab选择, 和UltiSnip冲突
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -230,6 +230,7 @@ nmap <leader>xx :lclose<cr>
 "---------
 nmap <leader>f :NERDTreeToggle<cr>
 let NERDTreeIgnore=[
+    \ '^venv$',
     \ '\.pyc$',
     \ '\.pyo$',
     \ '\.obj$',
@@ -308,7 +309,11 @@ let g:gitgutter_sign_modified = '*'
 " 显示dotfiles
 let g:ctrlp_show_hidden = 1
 " 忽略
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.swp/*
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v\venv|\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|pyc|pyo)$',
+  \ 'link': '',
+  \ }
 
 "------
 " emmet
@@ -316,7 +321,7 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.swp/*
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 let g:user_emmet_mode='i'
-"let g:user_emmet_leader_key='<C-M>'
+let g:user_emmet_leader_key='<C-A>'
 
 "-----------
 " easymotion
