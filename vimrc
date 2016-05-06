@@ -174,7 +174,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Raimondi/delimitMate'
-Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/a.vim'
@@ -274,11 +273,6 @@ let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'Snippets']
 map <leader>us :UltiSnipsEdit<CR>
 " 水平打开snippets编辑窗口
 let g:UltiSnipsEditSplit = 'vertical'
-
-"---------------------
-" Trailling Whitespace
-"---------------------
-nmap <leader><Space> :FixWhitespace<cr>
 
 "------
 " a.vim
