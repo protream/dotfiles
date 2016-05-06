@@ -9,6 +9,10 @@ snippet if "if" b
 {% endif %}
 endsnippet
 
+snippet ifi "if inline" b
+{% if $1 %}$2{% endif %}
+endsnippet
+
 snippet for "for" b
 {% for ${1:item} in ${2:items} %}
   ${3:Todo}
@@ -19,13 +23,13 @@ snippet imp "import" b
 {% import "${1:Todo}.html" %}
 endsnippet
 
-snippet blk "block" b
+snippet block "block" b
 {% block ${1:Todo} %}
 ${2:Todo}
 {% endblock %}
 endsnippet
 
-snippet blkl "block inline" b
+snippet blocki "block inline" b
 {% block ${1:Todo} %}${2:Todo}{% endblock %}
 endsnippet
 
@@ -33,7 +37,7 @@ snippet ext "extends" b
 {% extends "${1:base}.html" %}
 endsnippet
 
-snippet i "variables"
+snippet i "variables" w
 {{ ${1:Todo} }}
 endsnippet
 

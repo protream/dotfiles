@@ -34,6 +34,12 @@ set shortmess=atI
 
 autocmd FileType html setlocal sw=2 ts=2
 
+
+" 保存时自动删除行末尾空白
+autocmd BufWritePre <buffer> :%s/\s\+$//e
+" 保存时删除末尾空行
+autocmd BufWritePre <buffer> :%s/\($\n\s*\)\+\%$//e
+
 "---------
 " 主题设置
 "---------
@@ -221,7 +227,7 @@ let g:syntastic_check_on_wq = 0
 "let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_c_checkers = ['splint']
-let g:syntastic_python_flake8_args = '"--ignore=F401,E501,E265,E126,E241,F403,F821"'
+let g:syntastic_python_flake8_args = '"--ignore=F401,E501,E265,E126,E241,F403,F821,E402,E221"'
 " 关闭错误显示窗口
 nmap <leader>xx :lclose<cr>
 
@@ -311,7 +317,7 @@ let g:ctrlp_show_hidden = 1
 " 忽略
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v\venv|\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll|pyc|pyo)$',
+  \ 'file': '\v\.(exe|so|dll|pyc|pyo|swp)$',
   \ 'link': '',
   \ }
 
@@ -338,10 +344,14 @@ let g:vim_markdown_folding_disabled = 1
 "-------
 " Ag.vim
 "-------
-nmap <leader>g :Ag 
+nmap <leader>g :Ag
 " 从项目目录开始搜索
 let g:ag_working_path_mode='r'
 
+" -------
+" airline
+" -------
+let g:airline_theme = 'molokai'
 
 "++++++++++++++++++++++++++++++++++++++++++++
 " Gvim设置

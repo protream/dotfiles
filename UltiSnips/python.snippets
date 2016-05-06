@@ -17,18 +17,13 @@ def test(got, expected):
 	print('{} got: {} expected: {}'.format(prefix, repr(got), repr(expected)))
 endsnippet
 
-snippet init "__init__" b
-def __init__(self, ${1}):
-	${2:pass}
-endsnippet
 
-
-snippet f "False"
+snippet f "False" w
 False
 endsnippet
 
 
-snippet t "True"
+snippet t "True" w
 True
 endsnippet
 
@@ -54,27 +49,74 @@ snippet td "todo" b
 endsnippet
 
 
-snippet n "none"
+snippet n "none" w
 None
 endsnippet
 
 
-snippet Tk "from tkinter import *" b
-from Tkinter import *
-endsnippet
+###################
+#  magic methods  #
+###################
 
-
-snippet tk "from tkinter import *" b
-from tkinter import *
-endsnippet
-
-
-snippet tn "table name" b
-__tablename__ = '${1:name}'
+snippet init "__init__" b
+def __init__(self, ${1}):
+	${2:pass}
 endsnippet
 
 
 snippet repr "__repr__" b
 def __repr__(self):
 	$0
+endsnippet
+
+
+snippet str "__str__" b
+def __str__(self):
+	$0
+endsnippet
+
+
+###########
+#  Flask  #
+###########
+
+snippet tn "table name" b
+__tablename__ = '${1:name}'
+endsnippet
+
+snippet ru "redirect(url_for)" b
+return redirect(url_for('$1'))
+endsnippet
+
+snippet rt "render_template()" b
+return render_template('$1', ${2})
+endsnippet
+
+
+##############
+#  patterns  #
+##############
+
+snippet subject "observer pattern" b
+class Subject(object):
+
+	def __init__(self):
+		self._observers = []
+
+	def attach(self, observer):
+		if observer not in self._observers:
+			self._observers.append(observer)
+
+	def detach(self, observer):
+		try:
+			self._observers.remove(observer)
+		except:
+			pass
+
+	def notify(self, modifier=None):
+		for observer in self._observers:
+			if observer != modifier:
+				observer.update(self)
+
+$0
 endsnippet
