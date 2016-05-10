@@ -3,6 +3,12 @@
 ###########
 snippet if "if" b
 {% if ${1:Todo} %}
+$2
+{% endif %}
+endsnippet
+
+snippet ife "if else" b
+{% if ${1:Todo} %}
   ${2:Todo}
 {% else %}
   ${3:Todo}
@@ -39,6 +45,10 @@ endsnippet
 
 snippet i "variables" w
 {{ ${1:Todo} }}
+endsnippet
+
+snippet iu "url_for" w
+{{ url_for('$1') }}
 endsnippet
 
 snippet super "super" b

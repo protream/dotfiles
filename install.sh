@@ -13,6 +13,11 @@ if [ -f "$HOME/.vimrc" ]; then
 fi
 ln -s `pwd`/vimrc ~/.vimrc
 
+if ! [ -f "$HOME/.vim/colors/molokai.vim" ]; then
+    echo "Install `molokai.vim` theme ..."
+    ln -s `pwd`/molokai.vim ~/.vim/colors/molokai.vim
+fi
+
 echo "Install zshrc ..."
 if [ -f "$HOME/.zshrc" ]; then
     rm ~/.zshrc
@@ -26,6 +31,3 @@ fi
 ln -s `pwd`/UltiSnips ~/.vim/UltiSnips
 
 echo "Done!!!"
-
-
-

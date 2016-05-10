@@ -85,8 +85,8 @@ source $ZSH/oh-my-zsh.sh
 alias yg="you-get -o ~/Videos/"
 alias ygp="you-get -p totem"
 
-alias v="nvim"
-alias vs="nvim -S ~/.session.vim"
+alias v="vim"
+alias vs="vim -S ~/.session.vim"
 alias gv="gvim"
 alias gvs="gvim -S ~/.session.vim"
 
@@ -99,5 +99,8 @@ alias tmux="tmux -2"
 
 alias py='python2'
 alias py3='python3'
+
+alias cc="gcc -std=c11 -Wall"
+alias gcc="gcc -std=c11 -Wall"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

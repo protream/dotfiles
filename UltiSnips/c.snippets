@@ -1,0 +1,30 @@
+snippet box "comment box" b
+/*-----------------------------------------------------------------------------
+ * $1
+ *
+ * $0
+ *----------------------------------------------------------------------------*/
+endsnippet
+
+snippet n "NULL" w
+NULL
+endsnippet
+
+snippet rn "return NULL" b
+return NULL;
+endsnippet
+
+snippet a "assert()" b
+assert($1);
+endsnippet
+
+snippet testh "test helpher" b
+#define TEST(name) printf("test - %s\n", name);
+endsnippet
+
+snippet test "TEST()" b
+TEST("$1") {
+	$2
+	printf(" - ok");
+}
+endsnippet

@@ -34,11 +34,10 @@ set shortmess=atI
 
 autocmd FileType html setlocal sw=2 ts=2
 
-
 " 保存时自动删除行末尾空白
-autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd BufWritePre *.* :%s/\s\+$//e
 " 保存时删除末尾空行
-autocmd BufWritePre <buffer> :%s/\($\n\s*\)\+\%$//e
+autocmd BufWritePre *.* :%s/\($\n\s*\)\+\%$//e
 
 "---------
 " 主题设置
