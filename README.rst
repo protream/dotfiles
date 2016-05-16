@@ -1,3 +1,3 @@
 dofiles
 =======
-This contains my dofiles, as well as custom UltiSnips. They might not work for you, but fell free to steal from them.
+This are my dofiles, as well as some custom snippets. They might not work for you, but fell free to steal from them.
