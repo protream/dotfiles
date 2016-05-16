@@ -19,6 +19,7 @@ if has('nvim')
 endif
 
 "set hls
+set nu
 set rnu
 set cmdheight=1
 set smartindent
@@ -101,6 +102,12 @@ nmap <leader>rs :source ~/.session.vim<cr>
 "++++++++++++++++++++++++++++++++++++++++++++
 " 窗口管理
 "++++++++++++++++++++++++++++++++++++++++++++
+
+" 水平切分窗口
+nmap <leader>nh :new<cr>
+" 垂直切分窗口
+nmap <leader>nv :vnew<cr>
+
 "-------------
 " 在窗口间切换
 "-------------
@@ -167,7 +174,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
@@ -278,23 +284,6 @@ let g:UltiSnipsEditSplit = 'vertical'
 "------
 " ,a来回切换.h与.c文件
 nmap <leader>a :A<cr>
-
-
-"--------------------
-" NERDTree git plugin
-"--------------------
-" 默认的标识依次是: ✹ ✚ ✭ ➜ ═ ✖ ✗ ✔︎ ?
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "M",
-    \ "Staged"    : "S",
-    \ "Untracked" : "U",
-    \ "Renamed"   : "R",
-    \ "Unmerged"  : "=",
-    \ "Deleted"   : "X",
-    \ "Dirty"     : "D",
-    \ "Clean"     : "C",
-    \ "Unknown"   : "?"
-    \ }
 
 "----------
 " gitgutter
