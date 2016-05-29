@@ -15,6 +15,7 @@ ln -s `pwd`/vimrc ~/.vimrc
 
 if ! [ -f "$HOME/.vim/colors/molokai.vim" ]; then
     echo "Install `molokai.vim` theme ..."
+    mkdir ~/.vim/colors
     ln -s `pwd`/molokai.vim ~/.vim/colors/molokai.vim
 fi
 
