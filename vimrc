@@ -169,7 +169,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
@@ -203,12 +203,13 @@ filetype plugin indent on
 "--------------
 " 不显示Preview
 set completeopt=menu
+let g:ycm_key_invoke_completion = '<C-o>'
 " 不用tab选择, 和UltiSnip冲突
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_global_ycm_extra_conf = '~/ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/ycm_extra_conf.py'
 let g:ycm_filetype_blacklist = {
     \ 'nerdtree' : 1,
     \ 'tagbar' : 1,
