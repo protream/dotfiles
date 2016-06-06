@@ -98,6 +98,30 @@ snippet rt "render_template()" b
 return render_template('$1', ${2})
 endsnippet
 
+snippet id "db id" b
+id = db.Column(db.Integer, primary_key=True)
+endsnippet
+
+snippet dbint "db Integer" w
+db.Column(db.Integer, $1)
+endsnippet
+
+snippet dbstr "db String" w
+db.Column(db.String($1), $2)
+endsnippet
+
+snippet dbool "db Boolean" w
+db.Column(db.Boolean, $1)
+endsnippet
+
+snippet dbrel "db relationship" w
+db.relationship('$1', backref='$2', lazy='${3:dynamic}')
+endsnippet
+
+snippet dbfk "db ForeignKey" w
+db.ForeignKey('$1')
+endsnippet
+
 
 ##############
 #  patterns  #
