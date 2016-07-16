@@ -7,6 +7,10 @@ snippet p "print()" b
 ${0}print(${1})
 endsnippet
 
+snippet ifm "if name = main" b
+if __name__ == '__main__':
+	$0
+endsnippet
 
 snippet testh "test helper" b
 def test(got, expected):
@@ -90,7 +94,7 @@ snippet tn "table name" b
 __tablename__ = '${1:name}'
 endsnippet
 
-snippet ru "redirect(url_for)" b
+snippet rr "redirect(url_for)" b
 return redirect(url_for('$1'))
 endsnippet
 
@@ -110,8 +114,16 @@ snippet dbstr "db String" w
 db.Column(db.String($1), $2)
 endsnippet
 
+snippet dbtext "db Text" w
+db.Column(db.Text)
+endsnippet
+
 snippet dbool "db Boolean" w
 db.Column(db.Boolean, $1)
+endsnippet
+
+snippet dbtime "db DateTime" w
+db.Column(db.DateTime, default=datetime.utcnow())
 endsnippet
 
 snippet dbrel "db relationship" w
@@ -122,6 +134,13 @@ snippet dbfk "db ForeignKey" w
 db.ForeignKey('$1')
 endsnippet
 
+snippet csrf "csrf token" b
+{{ form.csrf_token }}
+endsnippet
+
+snippet mgp "get post" w
+methods=['GET', 'POST']
+endsnippet
 
 ##############
 #  patterns  #

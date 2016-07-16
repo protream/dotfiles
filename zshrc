@@ -83,13 +83,9 @@ alias ygp="you-get -p totem"
 
 alias v="vim"
 alias vs="vim -S ~/.session.vim"
-alias gv="gvim"
-alias gvs="gvim -S ~/.session.vim"
 
-# blog site preview out side octopress
-alias prv="cd ~/Octopress;rake preview;cd -"
-# deploy to github out side octopress
-alias dpy="cd ~/Octopress;rake deploy;cd -"
+alias av='. venv/bin/activate'
+alias dv='deactivate'
 
 alias tmux="tmux -2"
 
@@ -99,4 +95,12 @@ alias py3='python3'
 alias cc="gcc -std=c11 -Wall"
 alias gcc="gcc -std=c11 -Wall"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+alias blog="cd ~/protream.github.io/content && vim"
+alias new="cd ~/protream.github.io && hugo new"
+
+export GOROOT="/usr/local/lib/go"
+export GOBIN="$GOROOT/bin"
+export GOARCH="amd64"
+export GOOS="linux"
+export PATH="$GOROOT/bin:$PATH"
+export GOPATH="$HOME/go"

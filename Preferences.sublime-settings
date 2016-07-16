@@ -1,7 +1,7 @@
 {
 	"always_show_minimap_viewport": true,
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/Material Theme/schemes/OLD/Material-Theme.tmTheme",
+	"color_scheme": "Packages/Agila Theme/Agila Monokai Extended.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
@@ -11,6 +11,7 @@
 		"CVS",
 		"venv"
 	],
+	"font_size": 10,
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -23,7 +24,7 @@
 	"line_padding_bottom": 2,
 	"line_padding_top": 2,
 	"overlay_scroll_bars": "enabled",
-	"theme": "Material-Theme.sublime-theme",
+	"theme": "Material-Theme-Darker.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }

@@ -15,7 +15,7 @@ snippet ife "if else" b
 {% endif %}
 endsnippet
 
-snippet ifi "if inline" b
+snippet ifi "if inline" w
 {% if $1 %}$2{% endif %}
 endsnippet
 
@@ -26,7 +26,11 @@ snippet for "for" b
 endsnippet
 
 snippet imp "import" b
-{% import "${1:Todo}.html" %}
+{% import "${1:_macros.html}.html" %}
+endsnippet
+
+snippet impas "import as" b
+{% import "${1:_macros.html}.html" as ${2:macros} %}
 endsnippet
 
 snippet block "block" b
@@ -53,4 +57,8 @@ endsnippet
 
 snippet super "super" b
 {{ super() }}
+endsnippet
+
+snippet inc "include" b
+{% include "$1.html" %}
 endsnippet

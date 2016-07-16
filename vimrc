@@ -19,7 +19,6 @@ if has('nvim')
 endif
 
 "set hls
-set nu
 set rnu
 set cmdheight=1
 set smartindent
@@ -178,7 +177,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'Raimondi/delimitMate'
+" Plugin 'Raimondi/delimitMate'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/a.vim'
@@ -191,6 +190,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-surround'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-repeat'
+Plugin 'fatih/vim-go'
+Plugin 'nsf/gocode'
 call vundle#end()
 filetype plugin indent on
 
@@ -214,8 +215,6 @@ let g:ycm_filetype_blacklist = {
     \ 'nerdtree' : 1,
     \ 'tagbar' : 1,
     \ 'gitcommit' : 1,
-    \ 'text' : 1,
-    \ 'markdown' : 1,
     \}
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
