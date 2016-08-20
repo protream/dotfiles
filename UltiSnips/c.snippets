@@ -1,13 +1,9 @@
-snippet box "comment box" b
-/*-----------------------------------------------------------------------------
- * $1
- *
- * $0
- *----------------------------------------------------------------------------*/
+snippet n "NULL" w
+NULL
 endsnippet
 
-snippet N "NULL" w
-NULL
+snippet i "inclue" b
+#include <${1:stdio}.h>
 endsnippet
 
 snippet rn "return NULL" b
@@ -27,4 +23,35 @@ TEST("$1") {
 	$2
 	printf(" - ok");
 }
+endsnippet
+
+snippet notused "not used" b
+#define NOT_USED(V) ((void) V)
+endsnippet
+
+snippet c "const" w
+const
+endsnippet
+
+snippet cls "class" b
+namespace $1 {
+
+class $2 {
+ public:
+  $3
+
+ private:
+  $4
+};
+
+} // $1
+endsnippet
+
+snippet ind "ifndefine" b
+#ifndef $1_H_
+#define $1_H_
+
+$2
+
+#endif // $1_H_
 endsnippet

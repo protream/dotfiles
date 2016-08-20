@@ -13,6 +13,12 @@ if [ -f "$HOME/.vimrc" ]; then
 fi
 ln -s `pwd`/vimrc ~/.vimrc
 
+echo "Install tmuxrc ..."
+if [-f "$HOME/.tmux.conf"]; then
+    rm ~/.tmux.conf
+fi
+ln -s `pwd`/tmuxrc ~/.tmux.conf
+
 if ! [ -f "$HOME/.vim/colors/molokai.vim" ]; then
     echo "Install `molokai.vim` theme ..."
     mkdir ~/.vim/colors
