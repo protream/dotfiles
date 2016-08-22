@@ -78,25 +78,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias yg="you-get -o ~/Videos/"
-alias ygp="you-get -p totem"
-
-alias v="vim"
-alias vs="vim -S ~/.session.vim"
-
 alias av='. venv/bin/activate'
 alias dv='deactivate'
 
 alias tmux="tmux -2"
 
-alias py='python2'
-alias py3='python3'
-
-alias cc="gcc -std=c11 -Wall"
-alias gcc="gcc -std=c11 -Wall"
-
 alias blog="cd ~/protream.github.io/content && vim"
-alias new="cd ~/protream.github.io && hugo new"
 
 export GOROOT="/usr/local/lib/go"
 export GOBIN="$GOROOT/bin"

@@ -25,8 +25,12 @@ TEST("$1") {
 }
 endsnippet
 
-snippet notused "not used" b
+snippet nu "not used" b
 #define NOT_USED(V) ((void) V)
+endsnippet
+
+snippet NU "NOT_USED" b
+NOT_USED(${1:argc});
 endsnippet
 
 snippet c "const" w
