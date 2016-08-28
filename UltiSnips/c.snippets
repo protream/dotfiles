@@ -6,6 +6,10 @@ snippet i "inclue" b
 #include <${1:stdio}.h>
 endsnippet
 
+snippet ii "cpp inclue" b
+#include <${1:iostream}>
+endsnippet
+
 snippet rn "return NULL" b
 return NULL;
 endsnippet
@@ -14,27 +18,20 @@ snippet a "assert()" b
 assert($1);
 endsnippet
 
-snippet testh "test helpher" b
-#define TEST(name) printf("test - %s\n", name);
+snippet uu "unused" b
+#define UNUSED(V) ((void) V)
 endsnippet
 
-snippet test "TEST()" b
-TEST("$1") {
-	$2
-	printf(" - ok");
-}
-endsnippet
-
-snippet nu "not used" b
-#define NOT_USED(V) ((void) V)
-endsnippet
-
-snippet NU "NOT_USED" b
-NOT_USED(${1:argc});
+snippet UU "UNUSED" b
+UNUSED(${1:argc});
 endsnippet
 
 snippet c "const" w
 const
+endsnippet
+
+snippet s "static" b
+static
 endsnippet
 
 snippet cls "class" b
@@ -48,7 +45,7 @@ class $2 {
   $4
 };
 
-} // $1
+} // namespace $1
 endsnippet
 
 snippet ind "ifndefine" b
@@ -58,4 +55,35 @@ snippet ind "ifndefine" b
 $2
 
 #endif // $1_H_
+endsnippet
+
+snippet testh "test helper" b
+#ifdef TEST
+#include <stdio.h>
+
+#define TEST(what) printf(what);
+#define assert(_e) ((_e)?(void)0:(_assert(#_e, __FILE__,__LINE__),exit(1)))
+
+void ok() {
+	printf("OK\n");
+}
+
+static void _assert(char *estr, char *file, int line) {
+	printf("\n\n=== ASSERTION FAILED ===\n");
+	printf("--> %s:%d '%s' is not true!\n", file, line, estr);
+}
+
+void ${1:what}Test(void)
+{
+	$2
+}
+
+#endif
+endsnippet
+
+snippet testa "test a ..." b
+TEST("$1: ") {
+	$2
+	ok();
+}
 endsnippet

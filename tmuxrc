@@ -31,8 +31,8 @@ bind K resize-pane -U 10
 bind L resize-pane -R 9
 
 # Pane split
-bind v split-window -h
-bind b split-window
+bind C-v split-window -h
+bind C-h split-window
 
 # Vi copy mode
 bind Escape copy-mode
