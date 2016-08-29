@@ -1,3 +1,5 @@
+set -g default-terminal "screen-256color"
+
 # Unbind
 unbind n
 unbind p
@@ -12,17 +14,18 @@ set -g status off
 set -g prefix C-s
 
 # Window navigation
-bind -r C-j next-window
-bind -r C-k previous-window
+bind -r j next-window
+bind -r k previous-window
 
 # Window close
-bind X confirm-before -p "kill-window #W? (y/n)" kill-window
+bind C-x confirm-before -p "kill-pane #W? (y/n)" kill-pane
+bind x confirm-before -p "kill-window #W? (y/n)" kill-window
 
 # Pane navigation
-bind -r h select-pane -L
-bind -r j select-pane -D
-bind -r k select-pane -U
-bind -r l select-pane -R
+bind C-h select-pane -L
+bind C-j select-pane -D
+bind C-k select-pane -U
+bind C-l select-pane -R
 
 # Pane resize
 bind H resize-pane -L 10
@@ -32,7 +35,7 @@ bind L resize-pane -R 9
 
 # Pane split
 bind C-v split-window -h
-bind C-h split-window
+bind C-b split-window
 
 # Vi copy mode
 bind Escape copy-mode

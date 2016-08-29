@@ -80,9 +80,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias av='. venv/bin/activate'
 alias dv='deactivate'
-
-alias tmux="tmux -2"
-
 alias blog="cd ~/protream.github.io/content && vim"
 
 export GOROOT="/usr/local/lib/go"
@@ -91,3 +88,5 @@ export GOARCH="amd64"
 export GOOS="linux"
 export PATH="$GOROOT/bin:$PATH"
 export GOPATH="$HOME/go"
+
+[[ $TMUX = "" ]] && export TERM="xterm-256color"

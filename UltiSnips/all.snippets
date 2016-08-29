@@ -5,3 +5,40 @@ endsnippet
 snippet r "return" w
 return
 endsnippet
+
+snippet make "Description" b
+DEBUG=-g
+CFLAGS=-O2 -W -Wall -pedantic $(DEBUG)
+$1
+
+CCCOLOR="\033[34m"
+LINKCOLOR="\033[34;1m"
+SRCCOLOR="\033[33m"
+BINCOLOR="\033[37;1m"
+ENDCOLOR="\033[0m"
+
+QUIET_CC=@printf '    %b %b\n' $(CCCOLOR)CC$(ENDCOLOR) $(SRCCOLOR)$@$(ENDCOLOR) 1>&2;
+QUIET_LINK=@printf '    %b %b\n' $(LINKCOLOR)LINK$(ENDCOLOR) $(BINCOLOR)$@$(ENDCOLOR) 1>&2;
+QUIET_INSTALL=@printf '    %b %b\n' $(LINKCOLOR)CC$(ENDCOLOR) $(BINCOLOR)$@$(ENDCOLOR) 1>&2;
+
+ECHO_CC=$(QUIET_CC)$(CC) $(CFLAGS)
+ECHO_LD=$(QUIET_LINK)$(CC) $(CFLAGS)
+ECHO_INSTALL=$(QUIET_INSTALL)$(INSTALL)
+
+all: $2
+
+.PHONY: all
+
+%.o: %.c
+	$(ECHO_CC) -c $<
+
+dep:
+	$(ECHO_CC) -MM *.c
+
+.PHONY: dep
+
+clean:
+	rm $(SRVNAME) $(CLINAME) *.o
+
+.PHONY: clean
+endsnippet

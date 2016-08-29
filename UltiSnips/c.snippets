@@ -34,7 +34,7 @@ snippet s "static" b
 static
 endsnippet
 
-snippet cls "class" b
+snippet ncls "class with namespace" b
 namespace $1 {
 
 class $2 {
@@ -42,10 +42,24 @@ class $2 {
   $3
 
  private:
-  $4
+  // No copying allowed
+  $2(const $2&);
+  void operator=(const $2&);
 };
 
 } // namespace $1
+endsnippet
+
+snippet cls "class" b
+class $2 {
+ public:
+  $3
+
+ private:
+  // No copying allowed
+  $2(const $2&);
+  void operator=(const $2&);
+};
 endsnippet
 
 snippet ind "ifndefine" b
