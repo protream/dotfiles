@@ -1,3 +1,14 @@
+#----------------------------- Global Functions -------------------------
+global !p
+
+def get_filename(snip):
+	return snip.basename.upper()
+
+endglobal
+
+
+#----------------------------- Snippets ---------------------------------
+
 snippet n "NULL" w
 NULL
 endsnippet
@@ -63,12 +74,21 @@ class $2 {
 endsnippet
 
 snippet ind "ifndefine" b
-#ifndef $1_H_
-#define $1_H_
+#ifndef _`!p snip.rv = get_filename(snip)`_H_
+#define _`!p snip.rv = get_filename(snip)`_H_
 
-$2
+$1
 
-#endif // $1_H_
+#endif /* _`!p snip.rv = get_filename(snip)`_H_ */
+endsnippet
+
+snippet indp "ifndef cpp" b
+#ifndef `!p snip.rv = get_filename(snip)`_H_
+#define `!p snip.rv = get_filename(snip)`_H_
+
+$1
+
+#endif // `!p snip.rv = get_filename(snip)`_H_
 endsnippet
 
 snippet testh "test helper" b

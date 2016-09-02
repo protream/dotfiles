@@ -299,8 +299,7 @@ let g:ctrlp_show_hidden = 1
 " 忽略
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v\venv|\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll|pyc|pyo|swp)$',
-  \ 'link': '',
+  \ 'file': '\v\.(exe|so|dll|pyc|pyo|swp|o)$',
   \ }
 
 "------
