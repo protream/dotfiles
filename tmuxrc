@@ -1,3 +1,4 @@
+set -g utf8 on
 set -g default-terminal "screen-256color"
 
 # Unbind
@@ -7,25 +8,24 @@ unbind &
 unbind %
 unbind C-b
 
-# Disable status bar
-set -g status off
+set -g status on
 
 # Reset prefix
 set -g prefix C-s
 
 # Window navigation
-bind -r j next-window
-bind -r k previous-window
+bind -r C-j next-window
+bind -r C-k previous-window
 
 # Window close
-bind C-x confirm-before -p "kill-pane #W? (y/n)" kill-pane
-bind x confirm-before -p "kill-window #W? (y/n)" kill-window
+bind x confirm-before -p "kill-pane #W? (y/n)" kill-pane
+bind C-x confirm-before -p "kill-window #W? (y/n)" kill-window
 
 # Pane navigation
-bind C-h select-pane -L
-bind C-j select-pane -D
-bind C-k select-pane -U
-bind C-l select-pane -R
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
 
 # Pane resize
 bind H resize-pane -L 10

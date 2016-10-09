@@ -6,11 +6,12 @@ if !has('nvim')
     syntax on
     set nocompatible
     set encoding=utf-8
+    set termencoding=utf-8
     set laststatus=2
     set autoindent
     set autoread
     set incsearch
-    set mouse=a
+    set mouse-=a
 endif
 
 if has('nvim')
@@ -31,6 +32,7 @@ set ignorecase
 set title
 set cursorline
 set shortmess=atI
+set nowrap
 
 autocmd FileType html setlocal sw=2 ts=2
 
@@ -42,11 +44,14 @@ autocmd BufWritePre *.* :%s/\($\n\s*\)\+\%$//e
 "---------
 " 主题设置
 "---------
-set background="dark"
-set t_Co=256
-colorscheme molokai
-let g:molokai_original = 1
-let g:rehash256 = 1
+syntax enable
+"set background="dark"
+"set t_Co=256
+"colorscheme molokai
+colorscheme lucario
+"colorscheme solarized
+"let g:molokai_original = 1
+"let g:rehash256 = 1
 
 
 "++++++++++++++++++++++++++++++++++++++++++++
@@ -163,12 +168,11 @@ nmap <leader>wo :only<cr>
 "++++++++++++++++++++++++++++++++++++++++++++
 " 插件管理
 "++++++++++++++++++++++++++++++++++++++++++++
-syntax enable
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
@@ -221,17 +225,17 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 "----------
 " Syntastic
 "----------
-"set statusline+=%#warningmsg#
+set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-"let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_python_python_exec = '/usr/bin/python'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_c_checkers = ['splint']
-let g:syntastic_python_flake8_args = '"--ignore=F401,E501,E265,E126,E241,F403,F821,E402,E221"'
+"let g:syntastic_python_flake8_args = '"--ignore=F401,E501,E265,E126,E241,F403,F821,E402,E221"'
 " 关闭错误显示窗口
 nmap <leader>xx :lclose<cr>
 
@@ -241,6 +245,7 @@ nmap <leader>xx :lclose<cr>
 nmap <leader>f :NERDTreeToggle<cr>
 let NERDTreeIgnore=[
     \ '^venv$',
+    \ '^__pycache__$',
     \ '\.pyc$',
     \ '\.pyo$',
     \ '\.obj$',

@@ -1,7 +1,6 @@
-export ZSH=/home/protream/.oh-my-zsh
+export ZSH=/home/simplecloud/.oh-my-zsh
 
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="cloud"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -78,9 +77,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias av='. venv/bin/activate'
+alias av='. env/bin/activate'
 alias dv='deactivate'
 alias blog="cd ~/protream.github.io/content && vim"
+alias tmux="tmux -u"
 
 export GOROOT="/usr/local/lib/go"
 export GOBIN="$GOROOT/bin"
@@ -89,4 +89,12 @@ export GOOS="linux"
 export PATH="$GOROOT/bin:$PATH"
 export GOPATH="$HOME/go"
 
-[[ $TMUX = "" ]] && export TERM="xterm-256color"
+export LC_ALL="zh_CN.utf8"
+export LANG="zh_CN.utf8"
+export LANGUAGE="zh_CN.utf8"
+export TERM="xterm-256color"
+
+
+#if [[ $COLORTERM == 'gnome-terminal' ]]; then
+    #export TERM="xterm-256color"
+#fi
