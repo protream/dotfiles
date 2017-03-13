@@ -45,12 +45,10 @@ autocmd BufWritePre *.* :%s/\($\n\s*\)\+\%$//e
 " 主题设置
 "---------
 syntax enable
-"set background="dark"
+set background=dark
 "set t_Co=256
-"colorscheme molokai
-colorscheme lucario
-"colorscheme solarized
-"let g:molokai_original = 1
+let g:solarized_termcolors=16
+colorscheme solarized
 "let g:rehash256 = 1
 
 
@@ -180,7 +178,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 Plugin 'Raimondi/delimitMate'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'elzr/vim-json'
@@ -196,6 +194,8 @@ Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'posva/vim-vue'
 call vundle#end()
 filetype plugin indent on
 
@@ -245,6 +245,7 @@ nmap <leader>xx :lclose<cr>
 nmap <leader>f :NERDTreeToggle<cr>
 let NERDTreeIgnore=[
     \ '^venv$',
+    \ '^env$',
     \ '^__pycache__$',
     \ '\.pyc$',
     \ '\.pyo$',
@@ -256,7 +257,9 @@ let NERDTreeIgnore=[
     \ '\.swp$',
     \ '^\.git$',
     \ '^\.svn$',
-    \ '^\.hg$'
+    \ '^\.svn$',
+    \ '^node_modules$',
+    \ '^dist$'
     \]
 " 显示隐藏文件
 let NERDTreeShowHidden = 1
@@ -270,6 +273,7 @@ nmap <leader>t :TagbarToggle<cr>
 " 不显示help信息
 let g:tagbar_compact = 1
 let g:tagbar_width = 32
+let g:tagbar_autoshowtag = 0
 
 "----------
 " UltiSnips
@@ -337,7 +341,39 @@ let g:ag_working_path_mode='r'
 " -------
 " airline
 " -------
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'solarized'
+
+" ------------------
+" rainbow parerheses
+" ------------------
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+\]
+
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+let g:solarized_termtrans=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
 
 "++++++++++++++++++++++++++++++++++++++++++++
 " Gvim设置
