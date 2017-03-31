@@ -331,6 +331,7 @@ let g:user_emmet_leader_key='<C-A>'
 map ; <Plug>(easymotion-prefix)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+hi EasyMotionTarget2First ctermbg=none ctermfg=darkblue
 
 "-------------
 " vim markdown
