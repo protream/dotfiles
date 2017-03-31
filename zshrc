@@ -1,6 +1,7 @@
-export ZSH=/home/simplecloud/.oh-my-zsh
+export ZSH=/Users/protream/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="cloud"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -48,7 +49,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -77,9 +78,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias av='. env/bin/activate'
+alias av='. venv/bin/activate'
 alias dv='deactivate'
-alias blog="cd ~/protream.github.io/content && vim"
 alias tmux="tmux -u"
 alias ta='tmux attach'
 
@@ -87,20 +87,7 @@ alias ta='tmux attach'
 alias gpr='git pull --rebase'
 alias gpom='git push origin master'
 alias grc='git rebase --continue'
+alias syl='ssh -p 5104 simplecloud@d.zhengn.simplecloud.cn'
 
-export GOROOT="/usr/local/lib/go"
-export GOBIN="$GOROOT/bin"
-export GOARCH="amd64"
-export GOOS="linux"
-export PATH="$GOROOT/bin:$PATH"
-export GOPATH="$HOME/go"
-
-export LC_ALL="zh_CN.utf8"
-export LANG="zh_CN.utf8"
-export LANGUAGE="zh_CN.utf8"
-export TERM="xterm-256color"
-
-
-#if [[ $COLORTERM == 'gnome-terminal' ]]; then
-    #export TERM="xterm-256color"
-#fi
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
