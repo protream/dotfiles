@@ -36,6 +36,9 @@ snippet r "return" b
 return $0
 endsnippet
 
+snippet a "assert" b
+assert $0
+endsnippet
 
 snippet wt "while true" b
 while True:
@@ -44,7 +47,8 @@ endsnippet
 
 
 snippet d "short doc string" b
-"""$1."""
+""" $1
+"""
 endsnippet
 
 
@@ -168,4 +172,43 @@ class Subject(object):
 				observer.update(self)
 
 $0
+endsnippet
+
+
+###############
+#  pytest     #
+###############
+
+snippet acode "assert rv.status_code" b
+assert rv.status_code == ${1:200}
+endsnippet
+
+snippet got "client url_for" b
+got = client.${1:post}(url_for(self.endpoint$2)$3).json
+endsnippet
+
+snippet gotd "client url_for" b
+got = client.${1:post}(url_for(self.endpoint$2), data=dict(
+	$3
+)).json
+endsnippet
+
+snippet lgot "logined_client url_for" b
+got = logined_client.${1:post}(url_for(self.endpoint$2)$3).json
+endsnippet
+
+snippet lgotd "logined_client url_for" b
+got = logined_client.${1:post}(url_for(self.endpoint$2), data=dict(
+	$3
+)).json
+endsnippet
+
+snippet ared "assert redirect" b
+assert rv.status_code == 302
+assert url_for('frontend.login') in rv.text
+endsnippet
+
+snippet exp "ok_msg" b
+expected = dict(status='${1:success}', message=u'$2')
+assert got == expected
 endsnippet

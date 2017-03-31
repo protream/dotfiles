@@ -1,6 +1,6 @@
-"++++++++++++++++++++++++++++++++++++++++++++
+" ++++++++++++++++++++++++++++++++++++++++++++
 " 基本设置
-"++++++++++++++++++++++++++++++++++++++++++++
+" ++++++++++++++++++++++++++++++++++++++++++++
 " neovim下, 以下是默认值
 if !has('nvim')
     syntax on
@@ -34,7 +34,11 @@ set cursorline
 set shortmess=atI
 set nowrap
 
-autocmd FileType html setlocal sw=2 ts=2
+
+inoremap jk <esc>
+
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 " 保存时自动删除行末尾空白
 autocmd BufWritePre *.* :%s/\s\+$//e
@@ -172,7 +176,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
@@ -196,6 +200,7 @@ Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode'
+Plugin 'posva/vim-vue'
 call vundle#end()
 filetype plugin indent on
 
@@ -235,7 +240,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_python_exec = '/usr/bin/python'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_c_checkers = ['splint']
-"let g:syntastic_python_flake8_args = '"--ignore=F401,E501,E265,E126,E241,F403,F821,E402,E221"'
+"let g:syntastic_python_flake8_args = '"--ignore=F401,E501,E265,E126,E241,F403,F821,E402,E221,E225,E712,E226"'
 " 关闭错误显示窗口
 nmap <leader>xx :lclose<cr>
 
@@ -245,7 +250,9 @@ nmap <leader>xx :lclose<cr>
 nmap <leader>f :NERDTreeToggle<cr>
 let NERDTreeIgnore=[
     \ '^venv$',
+    \ '^env$',
     \ '^__pycache__$',
+    \ '^.cache$',
     \ '\.pyc$',
     \ '\.pyo$',
     \ '\.obj$',
@@ -256,7 +263,9 @@ let NERDTreeIgnore=[
     \ '\.swp$',
     \ '^\.git$',
     \ '^\.svn$',
-    \ '^\.hg$'
+    \ '^\.hg$',
+    \ '^node_modules$',
+    \ '^dist$',
     \]
 " 显示隐藏文件
 let NERDTreeShowHidden = 1
@@ -299,11 +308,12 @@ let g:gitgutter_sign_modified = '*'
 "------
 " CtrlP
 "------
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor
 " 显示dotfiles
 let g:ctrlp_show_hidden = 1
 " 忽略
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v\venv|\.(git|hg|svn)$',
+  \ 'dir':  '\v[\/]env|venv|\.(git|hg|svn)|node_modules$',
   \ 'file': '\v\.(exe|so|dll|pyc|pyo|swp|o)$',
   \ }
 

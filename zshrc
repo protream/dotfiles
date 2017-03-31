@@ -81,6 +81,12 @@ alias av='. env/bin/activate'
 alias dv='deactivate'
 alias blog="cd ~/protream.github.io/content && vim"
 alias tmux="tmux -u"
+alias ta='tmux attach'
+
+# git
+alias gpr='git pull --rebase'
+alias gpom='git push origin master'
+alias grc='git rebase --continue'
 
 export GOROOT="/usr/local/lib/go"
 export GOBIN="$GOROOT/bin"
