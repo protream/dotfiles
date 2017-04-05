@@ -13,6 +13,12 @@ if [ -f "$HOME/.vimrc" ]; then
 fi
 ln -s `pwd`/vimrc ~/.vimrc
 
+echo "Install agignore ..."
+if [ -f "$HOME/.agignore" ]; then
+	rm ~/.agignore
+fi
+ln -s `pwd`/agignore ~/.agignore
+
 echo "Install tmuxrc ..."
 if [-f "$HOME/.tmux.conf"]; then
     rm ~/.tmux.conf
