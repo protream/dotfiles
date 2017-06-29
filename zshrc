@@ -91,3 +91,6 @@ alias syl='ssh -p 5104 simplecloud@d.zhengn.simplecloud.cn'
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+
+export GOPATH=$HOME/go

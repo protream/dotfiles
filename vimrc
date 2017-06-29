@@ -33,6 +33,7 @@ set title
 set cursorline
 set shortmess=atI
 set nowrap
+set backspace=indent,eol,start
 
 
 inoremap jk <esc>
@@ -218,7 +219,7 @@ let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_confirm_extra_conf = 0
-"let g:ycm_global_ycm_extra_conf = '~/ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/ycm_extra_conf.py'
 let g:ycm_filetype_blacklist = {
     \ 'nerdtree' : 1,
     \ 'tagbar' : 1,
@@ -239,7 +240,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_python_exec = '/usr/bin/python'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_c_checkers = ['splint']
-"let g:syntastic_python_flake8_args = '"--ignore=F401,E501,E265,E126,E241,F403,F821,E402,E221,E225,E712,E226"'
+let g:syntastic_python_flake8_args = '"--ignore=E501,E265,E126,E241,F403,E402,E225,E712"'
 " 关闭错误显示窗口
 nmap <leader>xx :lclose<cr>
 
