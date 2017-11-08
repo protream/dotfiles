@@ -32,9 +32,12 @@ True
 endsnippet
 
 
-snippet r "return" b
-return $0
+snippet defp "def property function" b
+@property
+def ${1:name}(self):
+	$0
 endsnippet
+
 
 snippet a "assert" b
 assert $0

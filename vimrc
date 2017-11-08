@@ -1,7 +1,6 @@
-" ++++++++++++++++++++++++++++++++++++++++++++
+""""""""""""""""""""""""""""""""""""""""""""
 " 基本设置
-" ++++++++++++++++++++++++++++++++++++++++++++
-" neovim下, 以下是默认值
+""""""""""""""""""""""""""""""""""""""""""""
 if !has('nvim')
     syntax on
     set nocompatible
@@ -40,6 +39,7 @@ inoremap jk <esc>
 
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype vue setlocal ts=2 sts=2 sw=2
 
 " 保存时自动删除行末尾空白
 autocmd BufWritePre *.* :%s/\s\+$//e
@@ -56,6 +56,7 @@ let g:solarized_termcolors=16
 colorscheme solarized
 "let g:rehash256 = 1
 
+set pastetoggle=<F1>
 
 "++++++++++++++++++++++++++++++++++++++++++++
 " 按键映射
@@ -75,6 +76,10 @@ map <Up> <Nop>
 map <Down> <Nop>
 
 map Y y$
+" Copy selected content to clipboader, only osx
+vmap <leader>y :w !pbcopy<CR><CR>
+nmap <leader>z <C-Z>
+nmap <leader>p <C-P>
 
 " ,/ 关闭搜索高亮
 nmap <silent><leader>/ :nohls<CR>
@@ -241,6 +246,7 @@ let g:syntastic_python_python_exec = '/usr/bin/python'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_c_checkers = ['splint']
 let g:syntastic_python_flake8_args = '"--ignore=E501,E265,E126,E241,F403,E402,E225,E712"'
+let g:syntastic_html_checkers = []
 " 关闭错误显示窗口
 nmap <leader>xx :lclose<cr>
 
@@ -251,6 +257,7 @@ nmap <leader>f :NERDTreeToggle<cr>
 let NERDTreeIgnore=[
     \ '^venv$',
     \ '^env$',
+    \ '^ENV$',
     \ '^__pycache__$',
     \ '^.cache$',
     \ '\.pyc$',
@@ -264,8 +271,7 @@ let NERDTreeIgnore=[
     \ '^\.git$',
     \ '^\.svn$',
     \ '^\.hg$',
-    \ '^node_modules$',
-    \ '^dist$',
+    \ '^node_modules$'
     \]
 " 显示隐藏文件
 let NERDTreeShowHidden = 1
@@ -324,7 +330,7 @@ let g:ctrlp_custom_ignore = {
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 let g:user_emmet_mode='i'
-let g:user_emmet_leader_key='<C-A>'
+"let g:user_emmet_leader_key='<C-A>'
 
 "-----------
 " easymotion
