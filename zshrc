@@ -90,6 +90,7 @@ alias grc='git rebase --continue'
 alias syl='ssh -p 5104 simplecloud@d.zhengn.simplecloud.cn'
 alias doc="docker"
 alias docc='docker-compose'
+alias ign='cp ~/Workspace/dotfiles/gitignore ./.gitignore'
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
