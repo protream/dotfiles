@@ -47,8 +47,12 @@ snippet ext "extends" b
 {% extends "${1:base}.html" %}
 endsnippet
 
-snippet i "variables" w
+snippet i "{{}}" w
 {{ ${1:Todo} }}
+endsnippet
+
+snippet o "{%%}" w
+{% ${1:Todo} %}
 endsnippet
 
 snippet iu "url_for" w
