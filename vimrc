@@ -19,6 +19,7 @@ if has('nvim')
 endif
 
 "set hls
+set nu
 set rnu
 set cmdheight=1
 set smartindent
@@ -40,6 +41,7 @@ inoremap jk <esc>
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype vue setlocal ts=2 sts=2 sw=2
+autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 
 " 保存时自动删除行末尾空白
 autocmd BufWritePre *.* :%s/\s\+$//e
@@ -202,10 +204,10 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-surround'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-repeat'
-Plugin 'fatih/vim-go'
-Plugin 'nsf/gocode'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'posva/vim-vue'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'dyng/ctrlsf.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -230,6 +232,9 @@ let g:ycm_filetype_blacklist = {
     \ 'tagbar' : 1,
     \ 'gitcommit' : 1,
     \}
+let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
+let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
+  let g:ycm_goto_buffer_command = 'vertical-split'
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 "----------
@@ -245,8 +250,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_python_exec = '/usr/bin/python'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_c_checkers = ['splint']
-let g:syntastic_python_flake8_args = '"--ignore=E501,E265,E126,E241,F403,E402,E225,E712"'
 let g:syntastic_html_checkers = []
+let g:syntastic_python_flake8_args = '"--ignore=E501,E265,E126,E241,F403,E402,E225,E712,E722"'
 " 关闭错误显示窗口
 nmap <leader>xx :lclose<cr>
 
@@ -277,6 +282,18 @@ let NERDTreeIgnore=[
 let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
 "-------
 " Tagbar
@@ -347,10 +364,12 @@ let g:vim_markdown_folding_disabled = 1
 
 "-------
 " Ag.vim
+" CtrlSF.vim
 "-------
-nmap <leader>g :Ag
+nmap <leader>g :CtrlSF
 " 从项目目录开始搜索
 let g:ag_working_path_mode='r'
+vmap <leader>s <Plug>CtrlSFVwordExec
 
 " -------
 " airline

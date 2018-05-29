@@ -1,4 +1,4 @@
-export ZSH=/Users/protream/.oh-my-zsh
+export ZSH=/home/simplecloud/.oh-my-zsh
 
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="cloud"
@@ -86,6 +86,7 @@ alias ta='tmux attach'
 # git
 alias gpr='git pull --rebase'
 alias gpom='git push origin master'
+alias gprum='git pull --rebase upstream master'
 alias grc='git rebase --continue'
 alias syl='ssh -p 5104 simplecloud@d.zhengn.simplecloud.cn'
 alias doc="docker"
