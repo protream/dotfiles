@@ -158,6 +158,27 @@ nmap <leader>_ <C-W>_
 " ,=使窗口等宽
 nmap <leader>= <C-W>=
 
+
+"++++++++++++++++++++++++++++++++++++++++++++
+" Tab 管理
+"++++++++++++++++++++++++++++++++++++++++++++
+imap ,t <ESC>:tabnew<CR>
+
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>+ <Plug>AirlineSelectNextTab
+
+
 "-------------
 " 快速保存退出
 "-------------
@@ -251,7 +272,7 @@ let g:syntastic_python_python_exec = '/usr/bin/python'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_c_checkers = ['splint']
 let g:syntastic_html_checkers = []
-let g:syntastic_python_flake8_args = '"--ignore=E501,E265,E126,E241,F403,E402,E225,E712,E722"'
+let g:syntastic_python_flake8_args = '"--ignore=E501,E265,E126,E241,F403,E402,E225,E712"'
 " 关闭错误显示窗口
 nmap <leader>xx :lclose<cr>
 
@@ -276,7 +297,9 @@ let NERDTreeIgnore=[
     \ '^\.git$',
     \ '^\.svn$',
     \ '^\.hg$',
-    \ '^node_modules$'
+    \ '^\.pytest_cache$',
+    \ '^node_modules$',
+    \ '\.vendor$'
     \]
 " 显示隐藏文件
 let NERDTreeShowHidden = 1
@@ -298,7 +321,7 @@ let g:NERDTreeIndicatorMapCustom = {
 "-------
 " Tagbar
 "-------
-nmap <leader>t :TagbarToggle<cr>
+nmap <leader>g :TagbarToggle<cr>
 " 不显示help信息
 let g:tagbar_compact = 1
 let g:tagbar_width = 32
@@ -337,7 +360,7 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor
 let g:ctrlp_show_hidden = 1
 " 忽略
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]env|venv|\.(git|hg|svn)|node_modules$',
+  \ 'dir':  '\v[\/]env|venv|\.(git|hg|svn)|node_modules|\.vendor$',
   \ 'file': '\v\.(exe|so|dll|pyc|pyo|swp|o)$',
   \ }
 
@@ -366,15 +389,16 @@ let g:vim_markdown_folding_disabled = 1
 " Ag.vim
 " CtrlSF.vim
 "-------
-nmap <leader>g :CtrlSF
+nmap <leader>s :CtrlSF
 " 从项目目录开始搜索
 let g:ag_working_path_mode='r'
-vmap <leader>s <Plug>CtrlSFVwordExec
+vmap <leader>w <Plug>CtrlSFVwordExec
 
 " -------
 " airline
 " -------
 let g:airline_theme = 'solarized'
+let g:airline#extensions#tabline#enabled = 1
 
 " ------------------
 " rainbow parerheses

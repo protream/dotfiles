@@ -4,3 +4,6 @@ deprecated/
 deprecate/
 static/
 doc/
+env/
+venv/
+app/
