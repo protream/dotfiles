@@ -1,32 +1,18 @@
-set -g utf8 on
 set -g default-terminal "screen-256color"
-
-# Unbind
-unbind n
-unbind p
-unbind &
-unbind %
 
 set -g status on
 set -g mouse on
-
-# 启用活动警告
-setw -g monitor-activity on
 set -g visual-activity on
+set -g base-index         1
+set -g display-panes-time 10000
+set -g pane-base-index    1
+set -g renumber-windows   on
+setw -g monitor-activity on
+setw -g allow-rename      off
+setw -g automatic-rename  off
+setw -g mode-keys         vi
 
-set -g base-index         1     # 窗口编号从 1 开始计数
-set -g display-panes-time 10000 # PREFIX-Q 显示编号的驻留时长，单位 ms
-set -g mouse              on    # 开启鼠标
-set -g pane-base-index    1     # 窗格编号从 1 开始计数
-set -g renumber-windows   on    # 关掉某个窗口后，编号重排
-
-setw -g allow-rename      off   # 禁止活动进程修改窗口名
-setw -g automatic-rename  off   # 禁止自动命名新窗口
-setw -g mode-keys         vi    # 进入复制模式的时候使用 vi 键位（默认是 EMACS）
-
-# Window close
 bind x confirm-before -p "kill-pane #W? (y/n)" kill-pane
 bind C-x confirm-before -p "kill-window #W? (y/n)" kill-window
 
-# Reload config file
 bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
