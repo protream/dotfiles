@@ -25,10 +25,10 @@ if [-f "$HOME/.tmux.conf"]; then
 fi
 ln -s `pwd`/tmuxrc ~/.tmux.conf
 
-if ! [ -f "$HOME/.vim/colors/molokai.vim" ]; then
-    echo "Install `molokai.vim` theme ..."
+if ! [ -f "$HOME/.vim/colors/solarized.vim" ]; then
+    echo "Install `solarized.vim` theme ..."
     mkdir ~/.vim/colors
-    ln -s `pwd`/molokai.vim ~/.vim/colors/molokai.vim
+    ln -s `pwd`/solarized.vim ~/.vim/colors/solarized.vim
 fi
 
 echo "Install zshrc ..."
