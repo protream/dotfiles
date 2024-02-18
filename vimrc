@@ -35,6 +35,7 @@ set shortmess=atI
 set nowrap
 set backspace=indent,eol,start
 
+set maxmempattern=5000
 
 inoremap jk <esc>
 
@@ -211,7 +212,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 Plugin 'Raimondi/delimitMate'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'elzr/vim-json'
@@ -255,7 +256,7 @@ let g:ycm_filetype_blacklist = {
     \}
 let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
 let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
-  let g:ycm_goto_buffer_command = 'vertical-split'
+let g:ycm_goto_buffer_command = 'vertical-split'
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 "----------
@@ -305,7 +306,7 @@ let NERDTreeIgnore=[
 let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom= {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",

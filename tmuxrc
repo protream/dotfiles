@@ -6,43 +6,27 @@ unbind n
 unbind p
 unbind &
 unbind %
-unbind C-b
 
 set -g status on
+set -g mouse on
 
-# Reset prefix
-set -g prefix C-s
+# 启用活动警告
+setw -g monitor-activity on
+set -g visual-activity on
 
-# Window navigation
-bind -r C-j next-window
-bind -r C-k previous-window
+set -g base-index         1     # 窗口编号从 1 开始计数
+set -g display-panes-time 10000 # PREFIX-Q 显示编号的驻留时长，单位 ms
+set -g mouse              on    # 开启鼠标
+set -g pane-base-index    1     # 窗格编号从 1 开始计数
+set -g renumber-windows   on    # 关掉某个窗口后，编号重排
+
+setw -g allow-rename      off   # 禁止活动进程修改窗口名
+setw -g automatic-rename  off   # 禁止自动命名新窗口
+setw -g mode-keys         vi    # 进入复制模式的时候使用 vi 键位（默认是 EMACS）
 
 # Window close
 bind x confirm-before -p "kill-pane #W? (y/n)" kill-pane
 bind C-x confirm-before -p "kill-window #W? (y/n)" kill-window
-
-# Pane navigation
-bind h select-pane -L
-bind j select-pane -D
-bind k select-pane -U
-bind l select-pane -R
-
-# Pane resize
-bind H resize-pane -L 10
-bind J resize-pane -D 10
-bind K resize-pane -U 10
-bind L resize-pane -R 9
-
-# Pane split
-bind C-v split-window -h
-bind C-b split-window
-
-# Vi copy mode
-bind Escape copy-mode
-bind -t vi-copy v begin-selection
-bind -t vi-copy y copy-selection
-bind p pasteb
-setw -g mode-keys vi
 
 # Reload config file
 bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
